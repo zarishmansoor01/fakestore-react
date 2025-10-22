@@ -6,8 +6,8 @@ import ProductList from "./components/ProductList";
 import PDP from "./components/PDP";
 import Cart from "./components/Cart";
 import Contact from "./components/Contact";
-import Toast from "./components/toast";           // 🩶 correct case (T capital)
-import SkeletonGrid from "./components/Skeleton"; // 🩶 correct import name
+import Toast from "./components/toast";           
+import SkeletonGrid from "./components/Skeleton"; 
 
 export default function App() {
   const [products, setProducts] = useState([]);
@@ -27,7 +27,7 @@ export default function App() {
     async function fetchProducts() {
       try {
         setLoading(true);
-        await new Promise((r) => setTimeout(r, 1000)); // small fake delay
+        await new Promise((r) => setTimeout(r, 400));
         const res = await fetch("https://fakestoreapi.com/products");
         const data = await res.json();
         setProducts(data);
@@ -101,7 +101,7 @@ export default function App() {
       {/* 🌸 PRODUCT / CONTACT SECTIONS */}
       {!showContact ? (
         loading ? (
-          <SkeletonGrid />   // 🩶 show skeleton while loading
+          <SkeletonGrid />   
         ) : (
           <ProductList
             products={filtered}
